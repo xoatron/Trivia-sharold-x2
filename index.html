@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia para Sharold Mora</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; background: linear-gradient(to right, #ffd700, #ffec8b); color: #333; }
+    h1 { margin-top: 50px; }
+    .container { margin: 20px; }
+    .question { font-size: 18px; margin: 20px 0; }
+    .input-field { padding: 10px; font-size: 16px; margin: 10px; }
+    .submit-btn { padding: 10px 20px; font-size: 18px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .submit-btn:active { background-color: #45a049; }
+    .incorrect-btn { padding: 10px 20px; font-size: 18px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .incorrect-btn:active { background-color: #d32f2f; }
+    .credits { margin-top: 50px; font-size: 14px; color: #777; }
+  </style>
+</head>
+<body>
+  <h1>Bienvenido al sitio de Sharold Mora</h1>
+  <button class="submit-btn" onclick="startTrivia()">Si eres Sharold Mora, presiona</button>
+  <div id="content" class="container" style="display:none;">
+    <h1>Trivia para Sharold</h1>
+    <div id="trivia">
+      <!-- Pregunta 1 -->
+      <div class="question">
+        <p>¿Cuántos novios ha tenido Sharold?</p>
+        <input type="number" class="input-field" id="novios" />
+        <button class="submit-btn" onclick="checkNovios()">Enviar</button>
+        <p id="resultNovios"></p>
+      </div>
+      <!-- Pregunta 2 -->
+      <div class="question">
+        <p>¿Cuál fue su mejor novio?</p>
+        <input type="text" class="input-field" id="mejorNovio" />
+        <button class="submit-btn" onclick="checkMejorNovio()">Enviar</button>
+        <button class="incorrect-btn" onclick="incorrectJuanEsteban()">Juan Esteban</button>
+        <p id="resultMejorNovio"></p>
+      </div>
+      <!-- Preguntas adicionales -->
+      <div class="question">
+        <p>¿Cuál es tu flor favorita?</p>
+        <input type="text" class="input-field" id="florFavorita" />
+        <button class="submit-btn" onclick="checkFlorFavorita()">Enviar</button>
+        <p id="resultFlorFavorita"></p>
+      </div>
+      <div class="question">
+        <p>¿Cuál es tu comida favorita?</p>
+        <input type="text" class="input-field" id="comidaFavorita" />
+        <button class="submit-btn" onclick="checkComidaFavorita()">Enviar</button>
+        <p id="resultComidaFavorita"></p>
+      </div>
+    </div>
+    <!-- Biografía -->
+    <h2>Biografía de Sharold Mora</h2>
+    <div id="bio">
+      <p id="infoNovios"></p>
+      <p id="infoMejorNovio"></p>
+      <p id="infoFlorFavorita"></p>
+      <p id="infoComidaFavorita"></p>
+    </div>
+    <div class="credits">
+      <p>Hecho por Juan Diego Ortiz Hernández para Sharold Mora</p>
+    </div>
+  </div>
+
+  <script>
+    function startTrivia() {
+      document.querySelector('button').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    }
+
+    function checkNovios() {
+      const novios = document.getElementById('novios').value;
+      if (novios) {
+        document.getElementById('resultNovios').textContent = 'Información recibida';
+        document.getElementById('infoNovios').textContent = `Número de novios: ${novios}`;
+      }
+    }
+
+    function checkMejorNovio() {
+      const mejorNovio = document.getElementById('mejorNovio').value;
+      if (mejorNovio && mejorNovio.toLowerCase() !== 'juan esteban') {
+        document.getElementById('resultMejorNovio').textContent = 'Información recibida';
+        document.getElementById('infoMejorNovio').textContent = `Mejor novio: ${mejorNovio}`;
+      }
+    }
+
+    function incorrectJuanEsteban() {
+      document.getElementById('resultMejorNovio').textContent = 'Información recibida';
+      document.getElementById('infoMejorNovio').textContent = `No fue Juan Esteban`;
+    }
+
+    function checkFlorFavorita() {
+      const florFavorita = document.getElementById('florFavorita').value;
+      if (florFavorita) {
+        document.getElementById('resultFlorFavorita').textContent = 'Información recibida';
+        document.getElementById('infoFlorFavorita').textContent = `Flor favorita: ${florFavorita}`;
+      }
+    }
+
+    function checkComidaFavorita() {
+      const comidaFavorita = document.getElementById('comidaFavorita').value;
+      if (comidaFavorita) {
+        document.getElementById('resultComidaFavorita').textContent = 'Información recibida';
+        document.getElementById('infoComidaFavorita').textContent = `Comida favorita: ${comidaFavorita}`;
+      }
+    }
+  </script>
+</body>
+</html>
